@@ -1,6 +1,6 @@
-# tokei README
+# Tokei Statisitics
 
-This is the README for your extension "tokei". After writing up a brief description, we recommend including the following sections.
+A quick extension to count lines of your code, powered by [Tokei](https://github.com/XAMPPRocky/tokei).
 
 ## Features
 

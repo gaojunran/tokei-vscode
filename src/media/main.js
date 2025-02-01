@@ -1,3 +1,5 @@
+
+
 // media/main.js
 (function () {
     const vscode = acquireVsCodeApi();
@@ -10,6 +12,8 @@
     };
 
     window.addEventListener('message', event => {
+        console.log("Received message");
+        
         const message = event.data;
         switch (message.type) {
             case 'update':
@@ -17,6 +21,10 @@
                 break;
         }
     });
+
+    window.onload = () => {
+        vscode.postMessage({ type: 'refresh' });
+    };
 
     function sortCardsByCode() {
         // 获取所有卡片
@@ -39,6 +47,8 @@
     }
 
     function updateStats(data) {
+        console.log("Refreshing stats");
+    
         // 清空容器
         statsContainer.innerHTML = '';
 

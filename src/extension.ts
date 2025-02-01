@@ -36,10 +36,21 @@ class TokeiViewProvider implements vscode.WebviewViewProvider {
 
         webviewView.webview.html = this._getHtmlForWebview(webviewView.webview);
         
+        
+
+        // 监听来自 Webview 的消息
+        webviewView.webview.onDidReceiveMessage(async (message) => {
+            switch (message.type) {
+                case 'refresh': // 处理 refresh 信号
+                    await this.refresh();
+                    break;
+            }
+        });
+
         this.refresh();
 
-        // 设置定时自动刷新（每5分钟）
-        // setInterval(() => this.refresh(), 3000);
+        // 设置定时自动刷新（每分钟）
+        setInterval(() => this.refresh(), 60000);
     }
 
     public async refresh() {
