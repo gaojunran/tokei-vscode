@@ -6,19 +6,63 @@ body {
     font-family: var(--vscode-font-family);
 }
 
+button {
+    font-family: inherit;
+    font-size: 12px;
+    background: #212121;
+    color: white;
+    fill: rgb(155, 153, 153);
+    padding: 0.5em 0.7em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    font-weight: 500;
+  }
+  
+  button span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background: #000;
+  }
+  
+  button:hover .svg-wrapper {
+    transform: scale(1.25);
+    transition: 0.5s linear;
+  }
+  
+  button:hover svg {
+    transform: translateX(1.2em) scale(1.1);
+    fill: #fff;
+  }
+  
+  button:hover span {
+    opacity: 0;
+    transition: 0.5s linear;
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
+  
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-}
-
-#refresh-btn {
-    padding: 5px 10px;
-    background-color: var(--vscode-button-background);
-    color: var(--vscode-button-foreground);
-    border: none;
-    cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .lang-card {
@@ -27,12 +71,21 @@ body {
     border-radius: 4px;
     padding: 10px;
     margin-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.lang-card:hover {
+    border-color: white;
+}
+
+.lang-card:hover .lang-total {
+    color: white;
 }
 
 .lang-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 8px;
+    /* margin-bottom: 8px; */
 }
 
 .lang-name {
@@ -43,9 +96,9 @@ body {
     color: var(--vscode-descriptionForeground);
 }
 
-.lang-details {
+/* .lang-details {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     font-size: 0.9em;
-}
+} */

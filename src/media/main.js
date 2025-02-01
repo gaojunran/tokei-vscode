@@ -18,6 +18,26 @@
         }
     });
 
+    function sortCardsByCode() {
+        // 获取所有卡片
+        const cards = Array.from(statsContainer.getElementsByClassName('lang-card'));
+    
+        // 按照stats.code进行排序
+        cards.sort((a, b) => {
+            const codeA = parseInt(a.getElementsByClassName('lang-total')[0].textContent.replace(' Lines', ''), 10);
+            const codeB = parseInt(b.getElementsByClassName('lang-total')[0].textContent.replace(' Lines', ''), 10);
+            return codeB - codeA;
+        });
+    
+        // 清空容器
+        statsContainer.innerHTML = '';
+    
+        // 重新将排序后的卡片添加到容器中
+        cards.forEach(card => {
+            statsContainer.appendChild(card);
+        });
+    }
+
     function updateStats(data) {
         // 清空容器
         statsContainer.innerHTML = '';
@@ -30,17 +50,14 @@
             card.innerHTML = `
                 <div class="lang-header">
                     <span class="lang-name">${lang}</span>
-                    <span class="lang-total">${stats.code} 行</span>
-                </div>
-                <div class="lang-details">
-                    <div>代码: ${stats.code}</div>
-                    <div>注释: ${stats.comments}</div>
-                    <div>空行: ${stats.blanks}</div>
+                    <span class="lang-total">${stats.code} Lines</span>
                 </div>
             `;
 
             // 将卡片添加到容器中
             statsContainer.appendChild(card);
         }
+
+        sortCardsByCode();
     }
 })();
