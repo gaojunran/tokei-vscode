@@ -1,8 +1,10 @@
 {
   "name": "tokei-statistics",
+  "repository": "https://github.com/gaojunran/tokei-vscode",
   "displayName": "Tokei Statistics",
   "description": "A VS Code extension powered by tokei, to count your code quickly.",
   "author": "gaojunran",
+  "publisher": "gaojunran",
   "version": "0.0.1",
   "icon": "assets/icon.png",
   "engines": {
@@ -37,7 +39,7 @@
     "check-types": "tsc --noEmit",
     "lint": "eslint src",
     "test": "vscode-test",
-    "package-vsix": "pnpm vsce publish --no-dependencies",
+    "package-vsix": "pnpm vsce package --no-dependencies",
     "publish-vsix": "pnpm vsce publish --no-dependencies"
   },
   "devDependencies": {
