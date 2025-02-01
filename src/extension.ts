@@ -94,11 +94,11 @@ class TokeiViewProvider implements vscode.WebviewViewProvider {
 
     private _getHtmlForWebview(webview: vscode.Webview) {
         const scriptUri = webview.asWebviewUri(
-            vscode.Uri.joinPath(this._extensionUri, 'src', 'media', 'main.js')
+            vscode.Uri.joinPath(this._extensionUri, 'media', 'main.js')
         );
 
         const styleUri = webview.asWebviewUri(
-            vscode.Uri.joinPath(this._extensionUri, 'src', 'media', 'main.css')
+            vscode.Uri.joinPath(this._extensionUri, 'media', 'main.css')
         );
 
         return `<!DOCTYPE html>
